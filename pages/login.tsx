@@ -1,4 +1,5 @@
 import type { NextPage } from "next";
+import Link from "next/link";
 import { User } from "../models/index";
 import { Formik, Field, Form, FormikHelpers, ErrorMessage } from "formik";
 import { useGetUsers, useLoginUser, useUser } from "../hooks/users";
@@ -51,9 +52,10 @@ const Login: NextPage = () => {
         </Form>
       </Formik>
       <br />
-      {user.isSuccess && userAuth?.isSuccess &&(
+      {user.isSuccess && userAuth?.isSuccess && (
         <>
-          <a href="/api/logout">Logout</a>
+          <Link href="/api/logout">Logout</Link>
+
           <ul>
             {user.data?.map(({ email }, i) => (
               <li key={i}>{email}</li>
@@ -64,7 +66,8 @@ const Login: NextPage = () => {
       )}
       {user.isLoading && "Loading"}
       {user.error instanceof AxiosError && user.error.message}
-      {userAuth.error instanceof AxiosError && userAuth.error.response?.data.message }
+      {userAuth.error instanceof AxiosError &&
+        userAuth.error.response?.data.message}
     </div>
   );
 };
