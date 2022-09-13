@@ -1,12 +1,12 @@
 import type { NextPage } from "next";
 import { User } from "../models/index";
 import { Formik, Field, Form, FormikHelpers, ErrorMessage } from "formik";
-import { useGetUsers, useSignupUser } from "../hooks/users";
+import { useGetUsers, useMutate} from "../hooks/users";
 import * as Yup from "yup";
 
 const Home: NextPage = () => {
   const user = useGetUsers();
-  const mutation = useSignupUser()
+  const mutation = useMutate();
   return (
     <div>
       <h1>Signup</h1>
@@ -63,3 +63,4 @@ const Home: NextPage = () => {
 };
 
 export default Home;
+
