@@ -1,4 +1,5 @@
 import { ReactNode } from "react";
+import { ChevronLeftIcon, ChevronRightIcon } from "@heroicons/react/24/outline";
 
 export type Props = {
   children?: ReactNode;
@@ -15,4 +16,4 @@ export interface User {
 export interface RedirectUser {
   redirectTo?: string;
   redirectIfFound?: string;
-} 
+}
